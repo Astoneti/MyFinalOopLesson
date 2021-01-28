@@ -97,20 +97,20 @@ namespace FinalOopLesson
             SickLeaveCount = sickLeaveCount;
         }
 
-        public static Employee GetMostPaidEmployee(Employee salary1, Employee salary2, Employee salary3)    
+        public static Employee GetMostPaidEmployee(Employee employee1, Employee employee2, Employee employee3)    
         {
-            decimal sum1 = salary1.GetSalaryCalculation();  
-            decimal sum2 = salary2.GetSalaryCalculation();    
-            decimal sum3 = salary3.GetSalaryCalculation(); 
-            return (sum1 > sum2) ? ((sum1 > sum3) ? salary1 : salary3) : ((sum2 > sum3) ? salary2 : salary3);
+            decimal salary1 = employee1.GetSalaryEmployee();  
+            decimal salary2 = employee2.GetSalaryEmployee();    
+            decimal salary3 = employee3.GetSalaryEmployee(); 
+            return (salary1 > salary2) ? ((salary1 > salary3) ? employee1 : employee3) : ((salary2 > salary3) ? employee2 : employee3);
         }
 
-        public bool ShowIsSalaryBigger(Employee salary) 
+        public bool IsSalaryBigger(Employee salary) 
         {
             return amount > salary.amount;
         }
 
-        public decimal GetSalaryCalculation()
+        public decimal GetSalaryEmployee()
         {
             decimal salary = (decimal) rate * amount;
             decimal hourAmount = GetSalaryBasedOnHourlyPaid();
@@ -125,9 +125,8 @@ namespace FinalOopLesson
 
         private decimal GetSalaryBasedOnHourlyPaid()     
         {
-            decimal hourSalary = hourlyPaymentCount * 10;
-            decimal totalSum = amount + hourlyPaymentCount;
-            return totalSum;
+            decimal hourlyWage = hourlyPaymentCount * 10;
+            return hourlyWage;
         }
 
         private decimal GetSalaryBasedOnExperience (decimal salary)      
